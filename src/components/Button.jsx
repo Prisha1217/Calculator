@@ -52,10 +52,13 @@ function Button({
                         setValue((prev)=>(prev+e.target.innerHTML))
                         break;
                     case '=':
-                        let exp= (value.replaceAll('÷', '/')).replaceAll('×', '*')
-                        exp=value.replaceAll('√' , 'Math.sqrt')
-                        exp= value.replaceAll('^', '**')
+                        let exp= (value.replaceAll('÷', '/'))
+                        exp = exp.replaceAll('×', '*')
+                        exp=exp.replaceAll('√' , 'Math.sqrt')
+                        exp= exp.replaceAll('^', '**')
+                        console.log(exp)
                         setValue(eval(exp))
+                        console.log('yes')
                         break;
                     case '±':
                         setValue((prev)=> String(Number(prev)*-1))
@@ -74,8 +77,7 @@ function Button({
             }
             else if(e.target.innerHTML==='C'){
                 setValue((prev)=>(prev.slice(0, -1)))
-                if(value===null)
-                    value=0
+                
             }
         }
 
